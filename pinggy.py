@@ -6,6 +6,7 @@ import subprocess
 import sys
 import time
 import psutil
+import re
 
 def is_port_in_use(port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -31,6 +32,7 @@ def print_url():
                 print("😁 😁 😁")
                 found = True
                 break
+                
     if not found:
         print_url()
     else:
