@@ -22,16 +22,15 @@ def print_url():
     
     found = False
     with open('log.txt', 'r') as file:
-        end_word = '.pinggy.link'
         for line in file:
-            start_index = line.find("http:")
-            if start_index != -1:
-                end_index = line.find(end_word, start_index)
-                if end_index != -1:
-                    print("😁 😁 😁")
-                    print("URL: " + line[start_index:end_index + len(end_word)])
-                    print("😁 😁 😁")
-                    found = True
+            match = re.search(r'https://[^\s]*pinggy[^\s]*', line)
+
+            if match:
+                print("😁 😁 😁")
+                print("URL: " + match.group(0))
+                print("😁 😁 😁")
+                found = True
+                break
     if not found:
         print_url()
     else:
