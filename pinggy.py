@@ -14,7 +14,7 @@ def is_port_in_use(port):
 
 def run_app(env, command, port):
     print(command)
-    subprocess.run(f'{command} & ssh -o StrictHostKeyChecking=no -p 80 -R0:localhost:{port} qr@free.pinggy.io > log.txt', shell=True, env=env)
+    subprocess.run(f'{command} & ssh -o StrictHostKeyChecking=no -p 80 -R0:localhost:{port} free.pinggy.io > log.txt', shell=True, env=env)
     
 def print_url():
     print("waiting for output")
