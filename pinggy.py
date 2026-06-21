@@ -24,11 +24,12 @@ def print_url():
     found = False
     with open('log.txt', 'r') as file:
         for line in file:
-            match = re.search(r'https://[^\s]*pinggy[^\s]*', line)
+            matches = re.findall(r'https://[^\s]*pinggy[^\s]*', line)
 
-            if match:
+            if matches:
                 print("😁 😁 😁")
-                print("URL: " + match.group(0))
+                for url in matches:
+                    print("URL: " + url)
                 print("😁 😁 😁")
                 found = True
                 break
